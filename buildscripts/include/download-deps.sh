@@ -51,7 +51,9 @@ HEREDOC
 [ ! -d libplacebo ] && git clone --depth 1 --branch v$v_libplacebo --recurse-submodules --shallow-submodules https://code.videolan.org/videolan/libplacebo.git libplacebo
 
 # mpv
-[ ! -d mpv ]  && git clone --depth 1 --branch v$v_mpv https://github.com/mpv-player/mpv.git mpv
+[ ! -d mpv ] && git clone --no-checkout https://github.com/CKopoer/mpv.git mpv
+git -C mpv fetch --depth 1 origin 9fda3e12a57a7b3ebd627a3c1b37561709d4ffee
+git -C mpv checkout --detach 9fda3e12a57a7b3ebd627a3c1b37561709d4ffee
 
 # fftools_ffi
 [ ! -d fftools_ffi ] && git clone --depth 1 --branch main https://github.com/moffatman/fftools-ffi.git fftools_ffi
